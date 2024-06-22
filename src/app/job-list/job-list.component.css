@@ -1,0 +1,31 @@
+.list {
+        padding-bottom: 10px;
+}
+
+.active {
+        color: gold;
+}
+
+.icon-star {
+        cursor: pointer;
+        font-size: 20px;
+}
+
+.notFound {
+        padding-top: 250px;
+}
+
+.fw-bold {
+        font-size: 22px;
+        color: white;
+        font-weight: bold;
+}
+
+a:visited {
+        color: white;
+        text-decoration: none;
+}
+
+.title {
+        padding-left: 20px;
+}

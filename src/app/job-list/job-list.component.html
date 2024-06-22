@@ -1,0 +1,18 @@
+<div class="row list" *ngFor="let job of jobs; let i = index">
+        <div class="col-sm-1">
+                <img [src]="job.companyLogo" alt="Logo" />
+        </div>
+        <div class="col-sm-10 title">
+                <div class="fw-bold">
+                        <a [routerLink]="['/job-view', job.id]">{{job.title}}</a>
+                </div>
+                <b>company :</b> {{job.companyName}}, <b>Reference :</b> {{job.reference}}
+        </div>
+        <div class="col-sm-1">
+                <span class="icon-star" id="star-{{job.id}}" (click)="toggleFavorite(job)"
+                        [class.active]="isFavorite(job.id)"></span>
+        </div>
+</div>
+<div class="notFound text-center" *ngIf="jobs?.length === 0">
+        <span>Record Not Found</span>
+</div>

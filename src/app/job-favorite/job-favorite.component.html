@@ -1,0 +1,14 @@
+<div class="row list" *ngFor="let job of favoriteJobs; let i = index">
+        <div class="col-sm-1">
+                <img [src]="job.companyLogo" alt="Logo" class="logo" />
+        </div>
+        <div class="col-sm-11 title">
+                <div class="fw-bold">
+                        <a [routerLink]="['/job-view', job.id]">{{job.title}}</a>
+                </div>
+                <b>company :</b> {{job.companyName}}, <b>Reference :</b> {{job.reference}}
+        </div>
+</div>
+<div class="notFound" *ngIf="favoriteJobs?.length === 0">
+        <span>Record Not Found</span>
+</div>
