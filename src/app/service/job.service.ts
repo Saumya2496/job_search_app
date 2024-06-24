@@ -14,9 +14,13 @@ export class JobService {
 
   constructor(private http: HttpClient) { }
 
-  getFavoriteJobs(): Job[] {
+  getFavoriteJobs():Job[]{
+    const storedFavourites = localStorage.getItem('favoriteJobs');
+    if (storedFavourites) {
+      this.favoriteJobs = JSON.parse(storedFavourites);
+    }
     return this.favoriteJobs;
-  }
+  };
 
   addAndRemoveFavoriteJobs(job: Job) {
     const index = this.favoriteJobs.findIndex(favoriteJob => favoriteJob.id === job.id);
@@ -25,6 +29,7 @@ export class JobService {
     } else {
       this.favoriteJobs.splice(index, 1);
     }
+    localStorage.setItem('favoriteJobs', JSON.stringify(this.favoriteJobs));
   }
 
   
